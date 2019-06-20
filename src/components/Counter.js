@@ -6,12 +6,24 @@ class Counter extends Component {
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
+        if(this.props.count % 2 === 1) {
+            this.props.increment(this.props.count);
+        }
     };
 
     incrementAsync = () => {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        setInterval(() => this.props.increment(this.props.count), 1000);
     };
+
+    handleBtnInc = () => {
+        this.props.increment(this.props.count);
+    }
+
+    handleBtnDec = () => {
+        this.props.decrement(this.props.count);
+    }
 
     render() {
         // Fill in the two button onClick methods
@@ -20,20 +32,20 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => {/* Fill me in */this.handleBtnInc() }}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => {/* Fill me in */ this.handleBtnDec() }}>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
-                {/* <button onClick={this.incrementIfOdd}>
+                <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
                 <button onClick={this.incrementAsync}>
                     Increment async
-                </button>  */}
+                </button> 
             </p>
         );
     }
