@@ -11,18 +11,16 @@ export const DECREMENT = 'DECREMENT';
 
 export const increment = (count) => {
   // Fill in this function
-  const digit = count + 1;
   return {
     type: INCREMENT,
-    count: digit
+    payload: count + 1
   }
 };
 
 export const decrement = (count) => {
   // Fill in this function
-  const digit = count - 1; 
   return {
     type: DECREMENT,
-    count: digit
+    payload: count - 1
   }
 };
